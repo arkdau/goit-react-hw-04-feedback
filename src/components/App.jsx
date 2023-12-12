@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Section from "./Section/Section";
 import FeedbackOptions from "./FeedbackOptions/FeedbackOptions";
 import Statistics from "./Statistics/Statistics";
@@ -8,25 +8,19 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const countTotalFeedback = () => {
+  function countTotalFeedback() {
     return (
       good +
       neutral +
       bad
     );
-  };
+  }
 
   function countPositiveFeedbackPercentage() {
     return (
       (countTotalFeedback() > 0) ? (good / countTotalFeedback()) * 100 : 0
     );
   }
-
-  useEffect(() => {
-    console.log("good: ", good);
-    console.log("neutral: ", neutral);
-    console.log("bad: ", bad);
-  }, [good, neutral, bad]);
 
   return (
     <>
